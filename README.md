@@ -41,6 +41,13 @@ Ongoing Group Project [Detailed HowTo](https://github.com/jeyoor/web-programming
 
 [ASP.NET Core 1.0 & MVC](https://www.youtube.com/playlist?list=PLYMOUCVo86jGwWoSoEkpgnCJ3IPXIQmIC)
 
+### Adding social login to ASP.NET Core web apps
+
+[Enabling authentication using Facebook, Google and other external providers](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/index)
+
+### Adding a Web API plus Angular 2
+
+[Master Chef (Part 4) - ASP.NET Core and Angular 2 CRUD SPA](https://www.codeproject.com/Articles/1183740/Master-Chef-Part-ASP-NET-Core-and-Angular-CRUD-SPA)
 
 ## Misc
 
