@@ -41,6 +41,10 @@ Ongoing Group Project [Detailed HowTo](https://github.com/jeyoor/web-programming
 
 [ASP.NET Core 1.0 & MVC](https://www.youtube.com/playlist?list=PLYMOUCVo86jGwWoSoEkpgnCJ3IPXIQmIC)
 
+### Enabling SSL in ASP.NET Core web apps
+
+[HTTPS in ASP.NET Core from Scratch](http://www.blinkingcaret.com/2017/03/01/https-asp-net-core/)
+
 ### Adding social login to ASP.NET Core web apps
 
 [Enabling authentication using Facebook, Google and other external providers](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/index)
