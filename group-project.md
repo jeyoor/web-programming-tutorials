@@ -34,11 +34,24 @@ Add "$USERNAME" as a collaborator
    * Run `dotnet restore` within the project folder
    * Open the `Startup.cs` file from within VSCode
    * Tap the `Debug` icon (fourth from top) in the VSCode left-hand menu
-   * Click the `Play (F5)` icon to launch your web application
-   * Your web application should be visible on http://localhost:5000
+   * Click the Gear icon with an orange dot, then select `.NET Core` from the list
+   * This should autoconfigure a `launch.json` file in the .vscode subfolder for you
+   * Select `.NET Core Launch (web)` from the dropdown next to the play button
+   * Within the `launch.json` file, find the `.NET Core Launch (web)` subsection
+      * Within that subsection, update the "program" key to point to the path to your dll
+      * For this example project, the program key looks like this:  `"program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/aspnet-core-example.dll",`
+   * Press the `Play (F5)` icon and an error message should appear noting that VSCode `Could not find the prelaunch task "build"`
+   * Choose the "Configure Task Runner" option and select `.NET Core Build`
+   * This should autoconfigure a `tasks.json` file in the .vscode subfolder for you
+   * Restart VSCode
+   * Return to the `Debug` menu and press the `Play (F5)` icon
+   * A browser should launch with your web application should be visible on http://localhost:5000
+   * At this point we are ready to save everything into source control
+      * add a .gitignore to your project folder similar to the one listed here
+      * Use the VSCode source control menu to commit and push to your GitLab repo
 
 
-### Create a free asp.net hosting account
+### Create a free asp.net hosting account and deploy your site
 myasp.net
 free plan
 choose asp.net site
