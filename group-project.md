@@ -1,6 +1,11 @@
 # Web Development Group Project
 
-## Create an account at gitlab.com
+## Create an account at github.com
+   * Create an account at https://github.com
+   * Fork this repository to your account
+   * Clone the newly repository to your local machine
+
+## [optional] Create an account at gitlab.com
 Add your ssh public key
 Create a new project
 Set visibility to private
@@ -38,7 +43,7 @@ Add "$USERNAME" as a collaborator
    * This should autoconfigure a `launch.json` file in the .vscode subfolder for you
    * Select `.NET Core Launch (web)` from the dropdown next to the play button
    * Within the `launch.json` file, find the `.NET Core Launch (web)` subsection
-      * Within that subsection, update the "program" key to point to the path to your dll
+      * Within that subsection, update the `"program"` key to point to the path to your dll
       * For this example project, the program key looks like this:  `"program": "${workspaceRoot}/bin/Debug/netcoreapp1.1/aspnet-core-example.dll",`
    * Press the `Play (F5)` icon and an error message should appear noting that VSCode `Could not find the prelaunch task "build"`
    * Choose the "Configure Task Runner" option and select `.NET Core Build`
@@ -48,23 +53,57 @@ Add "$USERNAME" as a collaborator
    * A browser should launch with your web application should be visible on http://localhost:5000
    * At this point we are ready to save everything into source control
       * add a .gitignore to your project folder similar to the one listed here
-      * Use the VSCode source control menu to commit and push to your GitLab repo
+      * Use the VSCode source control menu to commit and push to your GitHub repo
 
 
-### Create a free asp.net hosting account and deploy your site
-myasp.net
-free plan
-choose asp.net site
+### Create a free trial microsoft azure account for deployment
 
-Go To Hostings -> Control Panel
+   * I recommend using [this account creation link](https://azure.microsoft.com/en-us/develop/net/aspnet/)
+   * There is quite the involved account creation procedure involving a phone number verification and a credit card verification
+   * If you want to avoid getting charged, make sure your app stays within the free tier limits [here](https://azure.microsoft.com/en-us/pricing/details/app-service/)
+   * Log in to https://portal.azure.com after creating your account
+   * Click on `App Services`
+   * Search for `Web App + SQL`
+   * Click `Create`
+   * Name your application something unique
+   * Under SQL Database, click on `Configure required settings`
+   * Enter a name for your new SQL database
+   * Click on `Target Server`
+   * Create a new server with a specified username. Enter and confirm the password. Keep this information handy.
+   * Click on `Pricing Tier`
+   * Move the down to the free tier if you don't want to get charged
+   * Click the `Select` button once, to drop back to the database creation dialog
+   * Click the `Select` button again to drop back to the Web App + SQL creation dialog
+   * Check the `Pin to dashboard` box
+   * Click `Create`
+   * After the web app deploys, it should appear in your Azure dashboard
+   * Click on the app service to open it
+   * Scroll down to `Scale up (App Service Plan)`
+   * Scroll down to the `Free Tier`, click it, and click the `Select` button
+   * Click on the `App Services` icon in the far left (it looks like a globe)
+   * Reopen your specific app service
+   * Click on `Deployment options` in the left-hand menu
+   * Click on `Configure required settings`
+   * Choose `Github`
+   * Click `Authorization`, then click the `Authorize` button
+   * Sign into your GitHub account
+   * Click the `Authorize` button
+   * Press the `Ok` button
+   * Choose the project
+   * Choose the repository
+   * Press Ok
+   * The build process will take a while
+   * Once it's done, click the `Overview` item in the left-hand menu.
+   * Next, click the `Browse` button in the top-left of the right-most pane. This should open your running web app.
+   * from this point forward, once you push to github, your app will deploy itself.
+   * To demonstrate this, edit Views/Home/About.cshtml and put a new message between the <p> tags.
+   * After you commit and push, your site should update
 
-TODO: find site URL 
 
 
 
 ### Create a database
 Go To Hostings -> Control Panel
-
 Go To Databases
 Add an MSSQL Database using MSSQL 2016
 Record the server name [sql****.myasp.net], username, and password info
