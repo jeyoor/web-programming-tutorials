@@ -1,30 +1,18 @@
 # Web Development Group Project
 
+##[Optional Extra Info](https://github.com/jeyoor/web-programming-tutorials/blob/master/optional-extra-info.md)
+
 ## Create an account at github.com
    * Create an account at https://github.com
    * Fork this repository to your account
    * Clone the newly repository to your local machine
 
-## [optional] Create an account at gitlab.com
-Add your ssh public key
-Create a new project
-Set visibility to private
-
-On the newly created "Project" -> "Home" screen, clone the ssh url displayed to your local machine
-
-### [optional] Add someone as a collaborator
-Go to "Settings" tab -> "Members" Subtab
-Add "$USERNAME" as a collaborator
 
 
-## Choose your path
-   * ASP.NET (documented below, Medium, Good all-around)
-   * PHP
-   * Haskell (Hard)
 
 ## [optional, recommended] ASP.NET Path 
 
-###Installation and setup
+### Installation and setup
 
    * Download dotnet core sdk from [microsoft.com](https://www.microsoft.com/net/core#windowscmd)
       * 
@@ -98,12 +86,5 @@ Add "$USERNAME" as a collaborator
    * from this point forward, once you push to github, your app will deploy itself.
    * To demonstrate this, edit Views/Home/About.cshtml and put a new message between the <p> tags.
    * After you commit and push, your site should update
-
-
-
-
-### Create a database
-Go To Hostings -> Control Panel
-Go To Databases
-Add an MSSQL Database using MSSQL 2016
-Record the server name [sql****.myasp.net], username, and password info
+   * From here on out, I recommend [creating a feature branch](https://code.visualstudio.com/Docs/editor/versioncontrol#_branches-and-tags) for each new feature you are going to implement, then [creating, reviewing, and merging a pull request](https://help.github.com/articles/about-pull-requests/) to your master branch when you want to deploy.
+   * We will explore this feature branch approach in greater depth in the next lesson.
