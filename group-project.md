@@ -10,9 +10,9 @@
 
 
 
-## [optional, recommended] ASP.NET Path 
+## Lesson One: Setting up a development workstation and cloud deployment
 
-### Installation and setup
+### Workstation setup
 
    * Download dotnet core sdk from [microsoft.com](https://www.microsoft.com/net/core#windowscmd)
       * 
@@ -44,8 +44,9 @@
       * Use the VSCode source control menu to commit and push to your GitHub repo
 
 
-### Create a free trial microsoft azure account for deployment
+### Set up cloud deployment
 
+   * Create a Microsoft Azure account
    * I recommend using [this account creation link](https://azure.microsoft.com/en-us/develop/net/aspnet/)
    * There is quite the involved account creation procedure involving a phone number verification and a credit card verification
    * If you want to avoid getting charged, make sure your app stays within the free tier limits [here](https://azure.microsoft.com/en-us/pricing/details/app-service/)
@@ -72,7 +73,7 @@
    * Reopen your specific app service
    * Click on `Deployment options` in the left-hand menu
    * Click on `Configure required settings`
-   * Choose `Github`
+   * Choose `GitHub`
    * Click `Authorization`, then click the `Authorize` button
    * Sign into your GitHub account
    * Click the `Authorize` button
@@ -87,4 +88,45 @@
    * To demonstrate this, edit Views/Home/About.cshtml and put a new message between the <p> tags.
    * After you commit and push, your site should update
    * From here on out, I recommend [creating a feature branch](https://code.visualstudio.com/Docs/editor/versioncontrol#_branches-and-tags) for each new feature you are going to implement, then [creating, reviewing, and merging a pull request](https://help.github.com/articles/about-pull-requests/) to your master branch when you want to deploy.
-   * We will explore this feature branch approach in greater depth in the next lesson.
+
+## Lesson Two: Building a Web API and sending a pull request
+   * Create a new branch using [Visual Studio Code](https://code.visualstudio.com/Docs/editor/versioncontrol#_branches-and-tags) or the [Git CLI](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+      * In Visual Studio Code, press `Ctrl-Shift-P`, then select `Git:Create branch...`
+      * From your Git command line, type `git checkout -b BRANCH_NAME` to create a new branch with the desired `BRANCH_NAME` and switch to it
+   * Reminder: Run `dotnet restore` and then `dotnet build` to refresh and rebuild your project after changing code
+   * Reminder: In Visual Studio Code, go to the `Debug` menu and click the `Play` button or press `F5` on the keyboard to run your application
+   * Install the free [Postman](https://www.getpostman.com/) app (we will use it to test the API your build)
+   * Follow [this tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) to create a Web API on your new branch
+   * Test your API using Postman as described in the tutorial
+   * Commit your work
+      * In Visual Studio Code,
+         * press the `Git` button (it looks like a Y)
+         * type a message for the commit into the text box
+	 * mouse over each file in the list and press the plus sign
+	 * once you're ready to commit, click the check mark icon at the top
+      * OR from your Git command line, type `git add . -A`
+   * Push your work to GitHub
+      * In Visual Studio Code
+         * press the `Git` button (it looks like a Y)
+         * click the three dots icon at the top of the screen
+	 * choose `Push`
+      * From your Git command line, type `git push origin`
+   * Create a pull request to merge your work to master
+      * Open your GitHub account
+      * Choose your web-programming-tutorials repository
+      * Click on the `Pull Requests` tab
+      * Click the `New Pull Request` button
+   * Review your pull request (in professional settings usually someone else will review your pull request)
+      * Open your GitHub account
+      * Choose your web-programming-tutorials repository
+      * Click on the `Pull Requests` tab
+      * Click on the newly created pull request
+      * Start opening and reviewing the files that were changed
+   * Make some comments on your pull request
+      * I recommend sprinkling some simple comments like `add explanatory comments to the code here` to get a feel for how pull requests work
+      * 
+   * Respond to the comments by adding some work to your branch
+      * Make the changes required for your pull request
+      * Commit and push your work (see steps above)
+   * Return to the pull request and review it
+      * See steps for `Review your pull request` above
