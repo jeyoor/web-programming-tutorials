@@ -1,7 +1,14 @@
 {
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "name": "Launch chrome with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000/Welcome",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}"
+        },
         {
             "name": ".NET Core Launch (console)",
             "type": "coreclr",

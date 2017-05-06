@@ -90,6 +90,8 @@
    * From here on out, I recommend [creating a feature branch](https://code.visualstudio.com/Docs/editor/versioncontrol#_branches-and-tags) for each new feature you are going to implement, then [creating, reviewing, and merging a pull request](https://help.github.com/articles/about-pull-requests/) to your master branch when you want to deploy.
 
 ## Lesson Two: Building a Web API and sending a pull request
+
+
    * Create a new branch using [Visual Studio Code](https://code.visualstudio.com/Docs/editor/versioncontrol#_branches-and-tags) or the [Git CLI](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
       * In Visual Studio Code, press `Ctrl-Shift-P`, then select `Git:Create branch...`
       * From your Git command line, type `git checkout -b BRANCH_NAME` to create a new branch with the desired `BRANCH_NAME` and switch to it
@@ -110,23 +112,76 @@
          * press the `Git` button (it looks like a Y)
          * click the three dots icon at the top of the screen
 	 * choose `Push`
-      * From your Git command line, type `git push origin`
+      * From your Git command line, type `git push origin BRANCH_NAME`
    * Create a pull request to merge your work to master
       * Open your GitHub account
       * Choose your web-programming-tutorials repository
       * Click on the `Pull Requests` tab
       * Click the `New Pull Request` button
+      * For the `base` branch, choose `master`
+      * For the `compare` branch, choose `BRANCH_NAME`
+      * Click the `Create pull request` button
+      * Add a comment or description to your pull request
+      * Click the `Create pull request` green button at the bottom-right of the page
    * Review your pull request (in professional settings usually someone else will review your pull request)
       * Open your GitHub account
       * Choose your web-programming-tutorials repository
       * Click on the `Pull Requests` tab
       * Click on the newly created pull request
-      * Start opening and reviewing the files that were changed
+      * Click on the `Files changed` tab
+      * Begin reviewing files and making comments
    * Make some comments on your pull request
-      * I recommend sprinkling some simple comments like `add explanatory comments to the code here` to get a feel for how pull requests work
-      * 
+      * You can click on a line under the `Files changed` tab to add a comment
+      * I recommend sprinkling some comments throughout the files so you can have something to change for the next step
+      * Comments like, `better variable names needed here` or `more comments needed here` are fun easy to fix
+      * After adding a comment you can click the `Start a review` button
+      * After adding all the necessary comments, click the `Review changes` button on the top-right
+      * You may optionally leave a summary comment
+      * When reviewing for others, you can decide to `Comment`, `Approve`, or `Request Changes`, then submit your review
+      * Since you're reviewing your own request, all you can do is `Comment`, so select `Comment` and click the `Review` button
    * Respond to the comments by adding some work to your branch
-      * Make the changes required for your pull request
-      * Commit and push your work (see steps above)
+      * Make the changes required for your pull request using Visual Studio code
+      * Commit and push your work (see steps above) [make sure you push to BRANCH_NAME and not master!]
    * Return to the pull request and review it
-      * See steps for `Review your pull request` above
+      * Open the pull request (See steps for `Review your pull request` above)
+      * This time, click the `Commits` tab
+      * You should see your new commits that fix the earlier issues listed under the commits tab
+   * Merge the pull request
+      * Open the pull request (See steps for `Review your pull request` above)
+      * Scroll to the bottom of the pull request
+      * Click the `Merge pull request` button
+   * If `master` is properly set up for Azure deployment (see Lesson 1), your production website should update with the API endpoint you created
+   * You can now repeat the Postman testing steps from the Web API tutorial against your production web API (the API with the azurewebsites.net URL)
+
+## Lesson Three: Building an Angular2 client for the Web API
+
+Special thanks to [this StackOverflow question](https://stackoverflow.com/questions/36494938/debug-run-angular2-typescript-with-visual-studio-code#37605661) for powering this lesson.
+
+### Set up VS Code and the Angular Quickstart
+   * Pull the `lesson_three` branch from this repository into yours
+      * if you don't have this repository set up as a remote, add it as an upstream
+         * (unfortunately, adding remotes requires using the Git CLI at the moment)
+	 * From your Git CLI, run `git remote add upstream https://github.com/jeyoor/web-programming-tutorials.git`
+      * using the upstream remote, pull the `lesson_three` branch into your current repository
+         * (unfortunately, pulling from a different remote requires using the Git CLI at the moment)
+         * From the Git CLI, run `git pull upstream lesson_three`
+      * if you have problems with pulling, you can simply [clone an entirely new copy of this repository and check out the `lesson_three` branch to continue](https://xkcd.com/1597/)
+   * Make certain your VSCode installation is up to date
+      * Use Help -> Check for Update
+      * Install any newer updates
+   * Install the extension called `Debugger for BROWSER_NAME` to facilitate browser debugging (this tutorial will use Chrome)
+   * Add a configuration for debugging with sourcemaps to launch.json
+      * Under `Browse` in VSCode, look under `aspnet-core-example/.vscode` for `launch.json`
+      * Under the `configurations` array, add a new configuration that looks like this:
+ 
+        {
+            "name": "Launch localhost with sourcemaps",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000/Welcome",
+            "sourceMaps": true,
+            "webRoot": "${workspaceRoot}"
+        }
+TODO: add more info here
+### Write the Angular2 TodoList app
+TODO: describe this part
