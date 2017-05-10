@@ -98,6 +98,7 @@
    * Reminder: Run `dotnet restore` and then `dotnet build` to refresh and rebuild your project after changing code
    * Reminder: In Visual Studio Code, go to the `Debug` menu and click the `Play` button or press `F5` on the keyboard to run your application
    * Install the free [Postman](https://www.getpostman.com/) app (we will use it to test the API your build)
+   * Create a Models folder under aspnet-core-example if it does not already exist
    * Follow [this tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api) to create a Web API on your new branch
    * Test your API using Postman as described in the tutorial
    * Commit your work
