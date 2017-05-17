@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core"
 
 @Component({
-    selector: "user-app",
+    selector: "my-app",
     template: `
                 <div>
                     <nav class='navbar navbar-inverse'>

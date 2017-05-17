@@ -27,10 +27,9 @@ export class UserComponent implements OnInit {
 
     ngOnInit(): void {
         this.userFrm = this.fb.group({
-            Id: [''],
-            FirstName: ['', Validators.required],
-            LastName: [''],
-            Gender: ['', Validators.required]
+            Key: [''],
+            Name: [''],
+            IsComplete: ['']
         });
         this.LoadUsers();
     }
@@ -45,28 +44,28 @@ export class UserComponent implements OnInit {
     addUser() {
         this.dbops = DBOperation.create;
         this.SetControlsState(true);
-        this.modalTitle = "Add New User";
+        this.modalTitle = "Add New Todo";
         this.modalBtnTitle = "Add";
         this.userFrm.reset();
         this.modal.open();
     }
 
-    editUser(id: number) {
+    editUser(key: number) {
         this.dbops = DBOperation.update;
         this.SetControlsState(true);
-        this.modalTitle = "Edit User";
+        this.modalTitle = "Edit Todo";
         this.modalBtnTitle = "Update";
-        this.user = this.users.filter(x => x.Id == id)[0];
+        this.user = this.users.filter(x => x.Key == key)[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     }
 
-    deleteUser(id: number) {
+    deleteUser(key: number) {
         this.dbops = DBOperation.delete;
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.user = this.users.filter(x => x.Id == id)[0];
+        this.user = this.users.filter(x => x.Key == key)[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     }
@@ -76,7 +75,7 @@ export class UserComponent implements OnInit {
    
         switch (this.dbops) {
             case DBOperation.create:
-                this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
+                this._userService.put(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
                     data => {
                         if (data == 1) //Success
                         {
@@ -96,7 +95,7 @@ export class UserComponent implements OnInit {
                 );
                 break;
             case DBOperation.update:
-                this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                this._userService.post(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
                     data => {
                         if (data == 1) //Success
                         {

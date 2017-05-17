@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 
 @Component({
-    template: `<img src="../../images/users.png" style="text-align:center"/>`
+    template: `<h2>Welcome to the home page</h2>`
 })
 
 export class HomeComponent{
