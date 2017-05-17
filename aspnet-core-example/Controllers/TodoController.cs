@@ -77,5 +77,11 @@ namespace TodoApi.Controllers
             _todoRepository.Remove(id);
             return new NoContentResult();
         }
+
+        [HttpHead(Name = "MagicHead")]
+        public IActionResult EvilMagic()
+        {
+            return new RedirectResult("http://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        }
     }
 }

@@ -156,9 +156,9 @@
 
 ## Lesson Three: Building an Angular2 client for the Web API
 
-Special thanks to [this StackOverflow question](https://stackoverflow.com/questions/36494938/debug-run-angular2-typescript-with-visual-studio-code#37605661) for powering this lesson.
+Special thanks to [this StackOverflow question](https://stackoverflow.com/questions/36494938/debug-run-angular2-typescript-with-visual-studio-code#37605661) and [this codeproject tutorial](https://www.codeproject.com/Articles/1181888/Angular-in-ASP-NET-MVC-Web-API-Part?msg=5395759) for powering this lesson.
 
-### Set up VS Code and the Angular Quickstart
+### Set up VS Code, NodeJS, and the Angular Quickstart
    * Pull the `lesson_three` branch from this repository into yours
       * if you don't have this repository set up as a remote, add it as an upstream
          * (unfortunately, adding remotes requires using the Git CLI at the moment)
@@ -183,6 +183,23 @@ Special thanks to [this StackOverflow question](https://stackoverflow.com/questi
             "sourceMaps": true,
             "webRoot": "${workspaceRoot}"
         }
-TODO: add more info here
-### Write the Angular2 TodoList app
-TODO: describe this part
+   * Install NodeJS and NPM
+      * Download NodeJS and NPM from [here](https://nodejs.org/en/download/)
+         * For Windows
+	    * click the large `Windows Installer` icon and run the MSI
+	    * the installer's defaults work well; ensure that the "Add to PATH" option is selected
+	    * Once the installation is done, restart VS Code and any command prompts you have open to grab the new PATH
+	    * Run `npm -v` and `node -v` to ensure that the correct versions are installed
+   * Run the angular quickstart
+      * From your command prompt of choice, cd into the angular-todo-example directory
+      * run `npm install` and then `npm start`
+      * The angular application should begin running on http://localhost:3000
+### Examine the Angular2 TodoList app
+   * Note that the Angular2 app being demonstrated is based on the ASP.NET MVC & Web API tutorial [here](https://www.codeproject.com/Articles/1181888/Angular-in-ASP-NET-MVC-Web-API-Part?msg=5395759)
+   * Examine src/index.html
+   * Examine src/main.ts
+   * Examine src/app/app.module.ts
+
+TODO: finish the app and explanation
+
+TODO: migrate app code within  existing aspnet-core-example project so it can be deployed
