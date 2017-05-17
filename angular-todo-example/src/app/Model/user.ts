@@ -1,5 +1,5 @@
 ﻿export interface IUser {
-    Key: number,
-    Name: string,
-    IsCompleted: string
+    key: number,
+    name: string,
+    isComplete: string
 }

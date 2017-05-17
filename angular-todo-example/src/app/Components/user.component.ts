@@ -27,9 +27,9 @@ export class UserComponent implements OnInit {
 
     ngOnInit(): void {
         this.userFrm = this.fb.group({
-            Key: [''],
-            Name: [''],
-            IsComplete: ['']
+            key: [''],
+            name: [''],
+            isComplete: ['']
         });
         this.LoadUsers();
     }
@@ -55,7 +55,7 @@ export class UserComponent implements OnInit {
         this.SetControlsState(true);
         this.modalTitle = "Edit Todo";
         this.modalBtnTitle = "Update";
-        this.user = this.users.filter(x => x.Key == key)[0];
+        this.user = this.users.filter(x => x.key == key)[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     }
@@ -65,7 +65,7 @@ export class UserComponent implements OnInit {
         this.SetControlsState(false);
         this.modalTitle = "Confirm to Delete?";
         this.modalBtnTitle = "Delete";
-        this.user = this.users.filter(x => x.Key == key)[0];
+        this.user = this.users.filter(x => x.key == key)[0];
         this.userFrm.setValue(this.user);
         this.modal.open();
     }
@@ -75,7 +75,7 @@ export class UserComponent implements OnInit {
    
         switch (this.dbops) {
             case DBOperation.create:
-                this._userService.put(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
+                this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
                     data => {
                         if (data == 1) //Success
                         {
@@ -95,7 +95,7 @@ export class UserComponent implements OnInit {
                 );
                 break;
             case DBOperation.update:
-                this._userService.post(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
                     data => {
                         if (data == 1) //Success
                         {

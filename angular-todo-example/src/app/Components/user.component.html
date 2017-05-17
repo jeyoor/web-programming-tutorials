@@ -1,6 +1,6 @@
 ﻿<div class='panel panel-primary'>
     <div class='panel-heading'>
-        User Management
+        Todo Management
     </div>
     <div class='panel-body'>
         <div class='table-responsive'>
@@ -18,9 +18,9 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let user of users">
-                        <td>{{user.Key}}</td>
-                        <td>{{user.Name}}</td>
-                        <td>{{user.IsCompleted}}</td>
+                        <td>{{user.key}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.isCompleted}}</td>
                         <td>
                             <button title="Edit" class="btn btn-primary" (click)="editUser(user.Key)">Edit</button>
                             <button title="Delete" class="btn btn-danger" (click)="deleteUser(user.Key)">Delete</button>
@@ -49,16 +49,16 @@
 
             <div class="form-group">
                 <div>
-                    <span>Key*</span>
-                    <input type="text" class="form-control" placeholder="Key" formControlName="Key">
+                    <span>Key</span>
+                    <input type="text" class="form-control" placeholder="Key" formControlName="key">
                 </div>
                 <div>
                     <span>Name</span>
-                    <input type="text" class="form-control" placeholder="Name" formControlName="Name">
+                    <input type="text" class="form-control" placeholder="Name" formControlName="name">
                 </div>
                 <div>
                     <span>IsComplete</span>
-                    <input type="text" class="form-control" placeholder="IsComplete" formControlName="IsComplete">
+                    <input type="text" class="form-control" placeholder="IsComplete" formControlName="isComplete">
                 </div>
                 <!--
                 <div>
