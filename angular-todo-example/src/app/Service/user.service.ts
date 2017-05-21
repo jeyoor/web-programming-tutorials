@@ -25,19 +25,19 @@ export class UserService {
             .catch(this.handleError);
     }
 
-    put(url: string, id: number, model: any): Observable<any> {
+    put(url: string, key: number, model: any): Observable<any> {
         let body = JSON.stringify(model);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.put(url+id, body, options)
+        return this._http.put(url+key, body, options)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }
 
-    delete(url: string, id: number): Observable<any> {
+    delete(url: string, key: number): Observable<any> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.delete(url+id,options)
+        return this._http.delete(url+key,options)
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }

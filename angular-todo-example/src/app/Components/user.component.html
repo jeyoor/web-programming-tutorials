@@ -20,7 +20,7 @@
                     <tr *ngFor="let user of users">
                         <td>{{user.key}}</td>
                         <td>{{user.name}}</td>
-                        <td>{{user.isCompleted}}</td>
+                        <td>{{user.isComplete}}</td>
                         <td>
                             <button title="Edit" class="btn btn-primary" (click)="editUser(user.key)">Edit</button>
                             <button title="Delete" class="btn btn-danger" (click)="deleteUser(user.key)">Delete</button>
@@ -55,20 +55,14 @@
                 <div>
                     <span>Name</span>
                     <input type="text" class="form-control" placeholder="Name" formControlName="name">
-                </div>
+                </div>                
                 <div>
                     <span>IsComplete</span>
-                    <input type="text" class="form-control" placeholder="IsComplete" formControlName="isComplete">
-                </div>
-                <!--
-                <div>
-                    <span>IsCompleted</span>
-                    <select formControlName="IsComplete" class="form-control">
-                        <option>True</option>
-                        <option>False</option>
+                    <select formControlName="isComplete" class="form-control">
+                        <option>true</option>
+                        <option>false</option>
                     </select>
                 </div>
-                -->
             </div>
         </modal-body>
         <modal-footer>
@@ -93,18 +87,12 @@
                     <input type="text" class="form-control" placeholder="Name" formControlName="name">
                 </div>
                 <div>
-                    <span>IsComplete</span>
-                    <input type="text" class="form-control" placeholder="IsComplete" formControlName="isComplete">
-                </div>
-                <!--
-                <div>
                     <span>IsCompleted</span>
-                    <select formControlName="IsComplete" class="form-control">
-                        <option>True</option>
-                        <option>False</option>
+                    <select formControlName="isComplete" class="form-control">
+                        <option>true</option>
+                        <option>false</option>
                     </select>
                 </div>
-                -->
             </div>
         </modal-body>
         <modal-footer>
