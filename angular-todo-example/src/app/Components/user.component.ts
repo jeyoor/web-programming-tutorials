@@ -77,16 +77,8 @@ export class UserComponent implements OnInit {
             case DBOperation.create:
                 this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
                     data => {
-                        if (data == 1) //Success
-                        {
-                            this.msg = "Data successfully added.";
-                            this.LoadUsers();
-                        }
-                        else
-                        {
-                            this.msg = "There is some issue in saving records, please contact to system administrator!"
-                        }
-                        
+                        this.msg = "Data successfully added.";
+                        this.LoadUsers();
                         this.modal.dismiss();
                     },
                     error => {
@@ -95,17 +87,10 @@ export class UserComponent implements OnInit {
                 );
                 break;
             case DBOperation.update:
-                this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.Id, formData._value).subscribe(
+                this._userService.put(Global.BASE_USER_ENDPOINT, formData._value.key, formData._value).subscribe(
                     data => {
-                        if (data == 1) //Success
-                        {
-                            this.msg = "Data successfully updated.";
-                            this.LoadUsers();
-                        }
-                        else {
-                            this.msg = "There is some issue in saving records, please contact to system administrator!"
-                        }
-
+                        this.msg = "Data successfully updated.";
+                        this.LoadUsers();
                         this.modal.dismiss();
                     },
                     error => {
@@ -114,17 +99,10 @@ export class UserComponent implements OnInit {
                 );
                 break;
             case DBOperation.delete:
-                this._userService.delete(Global.BASE_USER_ENDPOINT, formData._value.Id).subscribe(
+                this._userService.delete(Global.BASE_USER_ENDPOINT, formData._value.key).subscribe(
                     data => {
-                        if (data == 1) //Success
-                        {
-                            this.msg = "Data successfully deleted.";
-                            this.LoadUsers();
-                        }
-                        else {
-                            this.msg = "There is some issue in saving records, please contact to system administrator!"
-                        }
-
+                        this.msg = "Data successfully deleted.";
+                        this.LoadUsers();
                         this.modal.dismiss();
                     },
                     error => {

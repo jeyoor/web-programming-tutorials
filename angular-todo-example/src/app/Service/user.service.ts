@@ -17,6 +17,7 @@ export class UserService {
     }
 
     post(url: string, model: any): Observable<any> {
+        delete model['key'];
         let body = JSON.stringify(model);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
