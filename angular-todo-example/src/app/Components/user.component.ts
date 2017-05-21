@@ -23,11 +23,25 @@ export class UserComponent implements OnInit {
     modalTitle: string;
     modalBtnTitle: string;
 
+    @ViewChild('addmodal') addModal: ModalComponent;
+    users: IUser[];
+    user: IUser;
+    msg: string;
+    indLoading: boolean = false;
+    addTodoFrm: FormGroup;
+    dbops: DBOperation;
+    modalTitle: string;
+    modalBtnTitle: string;
+
     constructor(private fb: FormBuilder, private _userService: UserService) { }
 
     ngOnInit(): void {
         this.userFrm = this.fb.group({
             key: [''],
+            name: [''],
+            isComplete: ['']
+        });
+        this.addTodoFrm = this.fb.group({
             name: [''],
             isComplete: ['']
         });
@@ -46,8 +60,8 @@ export class UserComponent implements OnInit {
         this.SetControlsState(true);
         this.modalTitle = "Add New Todo";
         this.modalBtnTitle = "Add";
-        this.userFrm.reset();
-        this.modal.open();
+        this.addTodoFrm.reset();
+        this.addModal.open();
     }
 
     editUser(key: number) {
@@ -79,7 +93,7 @@ export class UserComponent implements OnInit {
                     data => {
                         this.msg = "Data successfully added.";
                         this.LoadUsers();
-                        this.modal.dismiss();
+                        this.addModal.dismiss();
                     },
                     error => {
                       this.msg = error;

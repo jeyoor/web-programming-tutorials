@@ -79,3 +79,39 @@
         </modal-footer>
     </form>
 </modal>
+
+<modal #addmodal>
+    <form novalidate (ngSubmit)="onSubmit(addTodoFrm)" [formGroup]="addTodoFrm">
+        <modal-header [show-close]="true">
+            <h4 class="modal-title">{{modalTitle}}</h4>
+        </modal-header>
+        <modal-body>
+
+            <div class="form-group">
+                <div>
+                    <span>Name</span>
+                    <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                </div>
+                <div>
+                    <span>IsComplete</span>
+                    <input type="text" class="form-control" placeholder="IsComplete" formControlName="isComplete">
+                </div>
+                <!--
+                <div>
+                    <span>IsCompleted</span>
+                    <select formControlName="IsComplete" class="form-control">
+                        <option>True</option>
+                        <option>False</option>
+                    </select>
+                </div>
+                -->
+            </div>
+        </modal-body>
+        <modal-footer>
+            <div>
+                <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
+                <button type="submit" [disabled]="addTodoFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
+            </div>
+        </modal-footer>
+    </form>
+</modal>
