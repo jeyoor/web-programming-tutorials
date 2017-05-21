@@ -1,0 +1,105 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Todo Management
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addTodo()">Add</button></div>
+            <div class="alert alert-info" role="alert" *ngIf="indLoading">Loading...</div>
+            <div *ngIf='todos && todos.length==0' class="alert alert-info" role="alert">No record found!</div>
+            <table class='table table-striped' *ngIf='todos && todos.length'>
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Name</th>
+                        <th>IsCompleted</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let todo of todos">
+                        <td>{{todo.key}}</td>
+                        <td>{{todo.name}}</td>
+                        <td>{{todo.isComplete}}</td>
+                        <td>
+                            <button title="Edit" class="btn btn-primary" (click)="editTodo(todo.key)">Edit</button>
+                            <button title="Delete" class="btn btn-danger" (click)="deleteTodo(todo.key)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+            </div>
+        </div>
+        <div *ngIf="msg" role="alert" class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{msg}}
+        </div>
+    </div>
+</div>
+
+<modal #modal>
+    <form novalidate (ngSubmit)="onSubmit(todoFrm)" [formGroup]="todoFrm">
+        <modal-header [show-close]="true">
+            <h4 class="modal-title">{{modalTitle}}</h4>
+        </modal-header>
+        <modal-body>
+
+            <div class="form-group">
+                <div>
+                    <span>Key</span>
+                    <input type="text" class="form-control" placeholder="Key" formControlName="key">
+                </div>
+                <div>
+                    <span>Name</span>
+                    <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                </div>                
+                <div>
+                    <span>IsComplete</span>
+                    <select formControlName="isComplete" class="form-control">
+                        <option>true</option>
+                        <option>false</option>
+                    </select>
+                </div>
+            </div>
+        </modal-body>
+        <modal-footer>
+            <div>
+                <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
+                <button type="submit" [disabled]="todoFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
+            </div>
+        </modal-footer>
+    </form>
+</modal>
+
+<modal #addmodal>
+    <form novalidate (ngSubmit)="onSubmit(addTodoFrm)" [formGroup]="addTodoFrm">
+        <modal-header [show-close]="true">
+            <h4 class="modal-title">{{modalTitle}}</h4>
+        </modal-header>
+        <modal-body>
+
+            <div class="form-group">
+                <div>
+                    <span>Name</span>
+                    <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                </div>
+                <div>
+                    <span>IsCompleted</span>
+                    <select formControlName="isComplete" class="form-control">
+                        <option>true</option>
+                        <option>false</option>
+                    </select>
+                </div>
+            </div>
+        </modal-body>
+        <modal-footer>
+            <div>
+                <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
+                <button type="submit" [disabled]="addTodoFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
+            </div>
+        </modal-footer>
+    </form>
+</modal>
